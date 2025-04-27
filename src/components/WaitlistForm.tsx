@@ -29,7 +29,19 @@ const WaitlistForm: React.FC = () => {
   }, []);
 
   return (
-    <section id="waitlist" className="py-16 sm:py-24 bg-[#00C4A7] text-white">
+    <section id="waitlist" className="relative py-16 sm:py-24 bg-[#00C4A7] text-white overflow-hidden">
+      {/* Subtle grid background */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0"
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px)',
+          backgroundSize: '40px 40px',
+          maskImage: 'radial-gradient(ellipse 60% 40% at 50% 50%, #000 60%, transparent 100%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 60% 40% at 50% 50%, #000 60%, transparent 100%)',
+        }}
+      />
       <Container>
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">Ready to transform your reconciliation process?</h2>

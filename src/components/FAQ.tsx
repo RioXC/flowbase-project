@@ -30,7 +30,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onToggle })
           isOpen ? 'max-h-96 pb-6' : 'max-h-0'
         }`}
       >
-        <p className="text-gray-600 leading-relaxed px-6">{answer}</p>
+        <p className="text-gray-600 leading-relaxed pl-8 pr-6">{answer}</p>
       </div>
     </div>
   );
@@ -42,7 +42,7 @@ const FAQ: React.FC = () => {
   const faqs = [
     {
       question: 'How secure is my data?',
-      answer: 'Your data is protected with enterprise-grade security including SOC 2 compliance, end-to-end encryption, and regular security audits. We maintain strict data privacy standards and never share your information with third parties.'
+      answer: 'Your data is protected with enterprise-grade security including end-to-end encryption and regular security audits. We maintain strict data privacy standards and never share your information with third parties.'
     },
     {
       question: 'What integrations are supported?',
