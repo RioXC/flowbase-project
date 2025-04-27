@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Container from './Container';
 import SectionHeading from './SectionHeading';
 import { Database, GitMerge, Cpu } from 'lucide-react';
@@ -42,6 +42,8 @@ const Step: React.FC<{
 
 const WorkflowSteps: React.FC = () => {
   const [activeStep, setActiveStep] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
 
   const steps = [
     {
@@ -61,26 +63,38 @@ const WorkflowSteps: React.FC = () => {
     }
   ];
 
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+    const observer = new window.IntersectionObserver(
+      ([entry]) => setVisible(entry.isIntersecting),
+      { threshold: 0.15 }
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="py-16 sm:py-24 bg-white">
       <Container>
-        <SectionHeading
-          title="How It Works"
-          subtitle="Set up your automated reconciliation system in three simple steps"
-        />
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-          {steps.map((step, index) => (
-            <Step
-              key={index}
-              number={index + 1}
-              title={step.title}
-              description={step.description}
-              icon={step.icon}
-              isActive={activeStep === index}
-              onClick={() => setActiveStep(index)}
-            />
-          ))}
+        <div ref={ref} className={`transition-all duration-700 ease-out ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'} will-change-transform`}>
+          <SectionHeading
+            title="How It Works"
+            subtitle="Set up your automated reconciliation system in three simple steps"
+          />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+            {steps.map((step, index) => (
+              <Step
+                key={index}
+                number={index + 1}
+                title={step.title}
+                description={step.description}
+                icon={step.icon}
+                isActive={activeStep === index}
+                onClick={() => setActiveStep(index)}
+              />
+            ))}
+          </div>
         </div>
       </Container>
     </section>

@@ -8,15 +8,8 @@ const Footer: React.FC = () => {
     <footer>
       <div className="bg-gray-50 text-gray-900 py-12">
         <Container>
-          <div className="text-center max-w-2xl mx-auto mb-8">
-            <h2 className="text-3xl font-bold mb-6 text-[#008798]">Save time. Regain trust.</h2>
-            <Button 
-              size="lg" 
-              className="bg-[#008798] hover:bg-[#007483]"
-              onClick={() => window.open('https://tally.so/r/w7jJdL', '_blank')}
-            >
-              Join the Waitlist
-            </Button>
+          <div className="text-center max-w-2xl mx-auto mb-4">
+            <h2 className="text-3xl font-bold mb-0 text-[#008798]">Save time. Regain trust. Get Flowbase</h2>
           </div>
         </Container>
       </div>

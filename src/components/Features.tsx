@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import Container from './Container';
 import SectionHeading from './SectionHeading';
 import { Workflow, Bot, Database, PieChart, AlertTriangle, Shield } from 'lucide-react';
@@ -20,6 +20,19 @@ const FeatureCard: React.FC<{
 };
 
 const Features: React.FC = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+    const observer = new window.IntersectionObserver(
+      ([entry]) => setVisible(entry.isIntersecting),
+      { threshold: 0.15 }
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
   const features = [
     {
       title: 'Visual Workflow Builder',
@@ -56,21 +69,22 @@ const Features: React.FC = () => {
   return (
     <section className="py-16 sm:py-24 bg-gray-50">
       <Container>
-        <SectionHeading
-          title="Transform your reconciliation process"
-          subtitle="Powerful features designed for high-transaction businesses"
-          titleColor="#008798"
-        />
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <FeatureCard
-              key={index}
-              title={feature.title}
-              description={feature.description}
-              icon={feature.icon}
-            />
-          ))}
+        <div ref={ref} className={`transition-all duration-700 ease-out ${visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-16'} will-change-transform`}>
+          <SectionHeading
+            title="Transform your reconciliation process"
+            subtitle="Powerful features designed for high-transaction businesses"
+            titleColor="#008798"
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <FeatureCard
+                key={index}
+                title={feature.title}
+                description={feature.description}
+                icon={feature.icon}
+              />
+            ))}
+          </div>
         </div>
       </Container>
     </section>

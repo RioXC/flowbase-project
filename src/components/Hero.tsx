@@ -18,7 +18,7 @@ const Hero: React.FC = () => {
           WebkitMaskImage: 'radial-gradient(ellipse 60% 40% at 50% 50%, #000 60%, transparent 100%)',
         }}
       />
-      <Container className="relative pt-14 pb-4 lg:pt-20 lg:pb-4">
+      <Container className="relative pt-14 pb-0 lg:pt-20 lg:pb-0">
         <div className="flex flex-col items-center mb-4">
           <div className="flex items-center justify-center mb-8">
             <img src="/flowbase-logo.png" alt="Flowbase Logo" className="w-14 h-14 mr-3" />
