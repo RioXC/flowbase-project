@@ -61,7 +61,7 @@ const Features: React.FC = () => {
     },
     {
       title: 'Secure Cloud Infrastructure',
-      description: 'Enterprise-grade security with SOC 2 compliance and end-to-end encryption.',
+      description: 'Enterprise-grade security with end-to-end encryption.',
       icon: <Shield className="h-6 w-6" />
     }
   ];
