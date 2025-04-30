@@ -13,7 +13,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onToggle })
   return (
     <div className="border-b border-gray-200 last:border-0">
       <button
-        className="w-full py-6 flex justify-between items-center text-left hover:bg-gray-50 transition-colors duration-200"
+        className="w-full p-6 flex justify-between items-center text-left transition-colors duration-200"
         onClick={onToggle}
       >
         <span className="text-lg font-medium text-gray-900 pr-8">{question}</span>

@@ -5,7 +5,7 @@ import { Workflow } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-[90vh] bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+    <section className="relative bg-gradient-to-b from-gray-50 to-white overflow-hidden">
       {/* Subtle grid background */}
       <div
         aria-hidden="true"
@@ -26,7 +26,7 @@ const Hero: React.FC = () => {
           </div>
         </div>
         <div className="max-w-3xl mx-auto">
-          <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl animate-gradient bg-gradient-to-r from-[#00C4A7] via-[#008798] to-[#00C4A7] bg-clip-text text-transparent text-center">
+          <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl md:text-5xl animate-gradient bg-gradient-to-r from-[#5eead4] via-[#008798] to-[#5eead4] bg-clip-text text-transparent text-center">
             Agentic workflows for financial clarity
           </h1>
           <p className="mt-8 text-2xl leading-10 text-gray-600 text-center font-medium">

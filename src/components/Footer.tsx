@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
       <div className="bg-gray-50 text-gray-900 py-12">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-4">
-            <h2 className="text-3xl font-bold mb-0 text-[#008798]">Save time. Regain trust. Get Flowbase</h2>
+            <h2 className="text-3xl font-bold mb-0 text-[#008798]">Save time. Regain trust. Get Flowbase.</h2>
           </div>
         </Container>
       </div>
